@@ -3,8 +3,15 @@
 //Get selected layer
 //edit its opacity
 
-var layer = app.project.activeItem.layer(1);
+var layer = app.project.activeItem.selectedLayers[0];
 
 var myProperty = layer.opacity;
-//opacity has propertyValueType of OneD, and is stored as a f loat
-myProperty.setValue(Math.random() * 100); // s et opacity to 50%
+
+var startTime = 2.0;
+var endTime = 4.0;
+var deltaTime = 0.01;
+
+myProperty.setValueAtTime(startTime - deltaTime, 100);
+myProperty.setValueAtTime(startTime, 0);
+myProperty.setValueAtTime(endTime - deltaTime, 0);
+myProperty.setValueAtTime(endTime,100);
